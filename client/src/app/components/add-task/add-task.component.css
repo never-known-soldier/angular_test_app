@@ -1,0 +1,93 @@
+.submit-form {
+  /* max-width: 400px; */
+  /* margin: auto; */
+}
+.form-group{
+  width: 100%;
+}
+.form-group-pro{
+width: 100%;
+display: flex;
+align-items: center;
+gap: 10px;
+margin-bottom: 12px
+}
+.textAreaa{
+  width: 100% !important;
+}
+.btnTask{
+  border: 1px solid gray;
+  color: gray;
+  font-size: 18px;
+}
+.AllBtn{
+  justify-content: end;
+  display: flex;
+  gap: 24px;
+  color: gray;
+}
+
+textarea{
+  border-radius: 10px;
+  width: 100% !important;
+  height: 100px;
+
+}
+.heading{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+.newTask{
+  font-size: 20px;
+  font-weight: 500;
+}
+.form_project{
+  width: 100%;
+}
+.CloseForm{
+font-size: 30px;
+}
+.mainForm{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.formProject{
+  margin-top: 2vw;
+  display: flex;
+  gap: 10px;
+}
+
+.iconCal{
+  border: 1px solid gray;
+  width: 27px;
+  height: 28px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+}
+.checkbox{
+  width: 20px;
+  height: 15px;
+}
+.iconPro{
+  margin-top: 25px;
+  border: 1px solid gray;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+}
+.checkboxPro{
+  font-size: 20px;
+  color: gray;
+}
+.form-group-client{
+  width: 25%;
+}

@@ -1,0 +1,164 @@
+<div>
+  <div class="heading">
+    <div class="newTask">New Task</div>
+    <div class="CloseForm"><i class="fas fa-times"></i></div>
+  </div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="due_date">Due Date</label>
+              <input type="date" class="form-control" id="due_date" required [(ngModel)]="due_date" name="due_date" />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <div class="formProject">
+                <div class="checkboxPro">
+                  <label>
+                    <input type="checkbox" class="checkbox" [(ngModel)]="date_filter" name="date_filter"
+                      id="date_filter" />
+                    Project Date Filter 30 +/-
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="description">Created By</label>
+              <input class="form-control" id="description" required [(ngModel)]="created_by" type="date"
+                name="description" />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="client">Client</label>
+              <select class="form-control" id="client" required name="client" required [(ngModel)]="client">
+                <option value="" disabled selected>Select a Client</option>
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group-pro">
+          <div class="form_project">
+            <label for="project">project</label>
+            <input type="text" class="form-control" id="project" required [(ngModel)]="project" name="project" />
+          </div>
+          <div class="iconPro">
+            <i class="fa-regular fa-file"></i>
+          </div>
+        </div>
+        <div class="form-group-pro">
+          <div class="form_project">
+            <label for="task">Task</label>
+            <input type="text" class="form-control" id="task" required [(ngModel)]="task" name="task" />
+          </div>
+          <div class="iconPro">
+            <i class="fa-regular fa-pen-to-square"></i>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="category">Status</label>
+              <select class="form-control" id="status" required name="status" [(ngModel)]="status">
+                <option value="" disabled selected>Select a Client</option>
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="assignee">Assignee</label>
+              <select class="form-control" id="assignee" required name="assignee" [(ngModel)]="assignee">
+                <option value="" disabled selected>Select an Assignee</option>
+                <option value="assignee1">Assignee 1</option>
+                <option value="assignee2">Assignee 2</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <div class="formProject">
+                <div class="checkboxPro">
+                  <label>
+                    <input type="checkbox" class="checkbox" />
+                    Send Email
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="taskType">Task Type</label>
+              <select class="form-control" id="taskType" required name="taskType" [(ngModel)]="task_type">
+                <option value="" disabled selected>Select a Task Type</option>
+                <option value="type1">Type 1</option>
+                <option value="type2">Type 2</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="priority">Priority</label>
+              <select class="form-control" id="priority" required name="priority" [(ngModel)]="priority">
+                <option value="" disabled selected>Select a Priority</option>
+                <option value="priority1">Priority 1</option>
+                <option value="priority2">Priority 2</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="category">Notes</label>
+              <div class="textAreaa">
+                <textarea [(ngModel)]="note" name="note" required></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="category">Email Notes</label>
+              <div class="textAreaa">
+                <textarea [(ngModel)]="email_notes" name="email_notes" required></textarea>
+                <div *ngIf="!email_notes && submitted" class="error-message">
+                  Email Notes are required.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="AllBtn">
+          <button class="btn btnTask">save & Add Task</button>
+          <button class="btn btnTask">save & Add Pitch/Hit</button>
+          <button class="btn btnTask">cancel</button>
+          <button (click)="saveTask()" class="btn btn-danger">Save</button>
+        </div>
+      </div>
+
+      <div *ngIf="submitted">
+        <h4>Task was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newTask()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>

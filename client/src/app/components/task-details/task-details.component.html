@@ -1,0 +1,99 @@
+<div *ngIf="viewMode; else editable">
+  <div *ngIf="currentTask.id">
+    <h4>Task details</h4>
+    <div>
+      <label><strong>Project:</strong></label> {{ currentTask.project }}
+    </div>
+    <div>
+      <label><strong>Assignee:</strong></label>
+      {{ currentTask.assignee }}
+    </div>
+    <div>
+      <label><strong>Status:</strong></label>
+      {{ currentTask.status}}
+    </div>
+    <div>
+      <label><strong>Note:</strong></label>
+      {{ currentTask.note }}
+    </div>
+    <div>
+      <label><strong>Task Type:</strong></label>
+      {{ currentTask.task_type }}
+    </div>
+    <div>
+      <label><strong>Email Notes:</strong></label>
+      {{ currentTask.email_notes }}
+    </div>
+  </div>
+
+  <div *ngIf="!currentTask">
+    <br />
+    <p>Please click on a Task...</p>
+  </div>
+</div>
+
+<ng-template #editable>
+  <div *ngIf="currentTask.id" class="edit-form">
+    <h4>Task</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Project</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentTask.project"
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Due Date</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentTask.due_date"
+          name="description"
+        />
+      </div>
+
+      <div class="form-group">
+        <label><strong>Status:</strong></label>
+        {{ currentTask.published ? "Published" : "Pending" }}
+      </div>
+    </form>
+
+    <button
+      class="badge badge-primary mr-2"
+      *ngIf="currentTask.published"
+      (click)="updatePublished(false)"
+    >
+      UnPublish
+    </button>
+    <button
+      *ngIf="!currentTask.published"
+      class="badge badge-primary mr-2"
+      (click)="updatePublished(true)"
+    >
+      Publish
+    </button>
+
+    <button class="badge badge-danger mr-2" (click)="deleteTask()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="badge badge-success mb-2"
+      (click)="updateTask()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentTask.id">
+    <br />
+    <p>Cannot access this Task...</p>
+  </div>
+</ng-template>
